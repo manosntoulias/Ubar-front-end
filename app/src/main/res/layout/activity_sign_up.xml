@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id = "@+id/user"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Username:"
+        app:layout_constraintBottom_toTopOf="@+id/edituser"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline"
+        />
+
+    <EditText
+        android:id = "@+id/edituser"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/pass"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        />
+
+        <TextView
+            android:id = "@+id/pass"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Password:"
+            app:layout_constraintBottom_toTopOf="@+id/editpass"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/edituser"
+            />
+
+        <EditText
+            android:id = "@+id/editpass"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:inputType = "text"
+            app:layout_constraintBottom_toTopOf="@+id/con_pass"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/pass"
+            />
+
+       <TextView
+            android:id = "@+id/con_pass"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Confirm Password:"
+            app:layout_constraintBottom_toTopOf="@+id/editcon_pass"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editpass"
+            />
+
+        <EditText
+            android:id="@+id/editcon_pass"
+            android:layout_width="17dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/name"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/con_pass" />
+
+         <TextView
+            android:id = "@+id/name"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Name:"
+            app:layout_constraintBottom_toTopOf="@+id/editname"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editcon_pass"
+            />
+
+        <EditText
+            android:id = "@+id/editname"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:inputType = "text"
+            app:layout_constraintBottom_toTopOf="@+id/surname"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            />
+
+        <TextView
+            android:id = "@+id/surname"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Surname:"
+            app:layout_constraintBottom_toTopOf="@+id/editsurname"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editname"
+            />
+
+        <EditText
+            android:id = "@+id/editsurname"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:inputType = "text"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/surname"
+            />
+
+        <TextView
+            android:id = "@+id/email"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Email:"
+            app:layout_constraintBottom_toTopOf="@+id/editemail"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editsurname"
+            />
+
+        <EditText
+            android:id = "@+id/editemail"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:inputType = "text"
+            app:layout_constraintBottom_toTopOf="@+id/phone"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            />
+
+        <TextView
+            android:id = "@+id/phone"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Phone Number:"
+            app:layout_constraintBottom_toTopOf="@+id/editphone"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editemail"
+            />
+
+        <EditText
+            android:id = "@+id/editphone"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:inputType = "text"
+            app:layout_constraintBottom_toTopOf="@+id/address"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/phone"
+            />
+
+        <TextView
+            android:id = "@+id/address"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Address:"
+            app:layout_constraintBottom_toTopOf="@+id/editaddress"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+            app:layout_constraintTop_toBottomOf="@+id/editphone"
+            />
+
+         <EditText
+              android:id = "@+id/editaddress"
+              android:layout_width = "wrap_content"
+              android:layout_height = "wrap_content"
+              android:inputType = "text"
+              app:layout_constraintBottom_toTopOf="@+id/driver_info"
+              app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+              app:layout_constraintTop_toBottomOf="@+id/address"
+              />
+
+        <TextView
+              android:id = "@+id/driver_info"
+              android:layout_width = "wrap_content"
+              android:layout_height = "wrap_content"
+              android:text = "Fill the following info if you sign up as a driver"
+              app:layout_constraintBottom_toTopOf="@+id/constructor"
+              app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+
+              app:layout_constraintTop_toBottomOf="@+id/editaddress"
+            />
+
+    <TextView
+        android:id = "@+id/constructor"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Constructor:"
+        app:layout_constraintBottom_toTopOf="@+id/editconstructor"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/driver_info"
+        />
+
+    <EditText
+        android:id = "@+id/editconstructor"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/model"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/constructor"
+        />
+
+    <TextView
+        android:id = "@+id/model"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Model:"
+        app:layout_constraintBottom_toTopOf="@+id/editmodel"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editconstructor"
+        />
+
+    <EditText
+        android:id = "@+id/editmodel"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/construction_year"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/model"
+        />
+
+    <TextView
+        android:id = "@+id/construction_year"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Construction Year:"
+        app:layout_constraintBottom_toTopOf="@+id/editconstruction_year"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editmodel"
+        />
+
+    <EditText
+        android:id = "@+id/editconstruction_year"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/plate"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/construction_year"
+        />
+
+    <TextView
+        android:id = "@+id/plate"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Registration Plate:"
+        app:layout_constraintBottom_toTopOf="@+id/editplate"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editconstruction_year"
+        />
+
+    <EditText
+        android:id = "@+id/editplate"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/driver_info"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/plate"
+        />
+
+    <TextView
+        android:id = "@+id/color"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Color:"
+        app:layout_constraintBottom_toTopOf="@+id/editcolor"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editplate"
+        />
+
+    <EditText
+        android:id = "@+id/editcolor"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintBottom_toTopOf="@+id/Psignup"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/color"
+        />
+
+    <Button
+        android:id = "@+id/Psignup"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:text = "Passenger\nSign Up"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/Dsignup"
+        app:layout_constraintTop_toBottomOf="@+id/editcolor"
+        android:layout_marginRight="5dp"
+        />
+
+    <Button
+        android:id = "@+id/Dsignup"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:text = "Driver\nSign Up"
+        app:layout_constraintLeft_toRightOf="@+id/Psignup"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editcolor"
+        android:layout_marginLeft="5dp"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+  <!--  <android.support.constraint.Guideline
+        android:id="@+id/mid_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" /> -->
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
