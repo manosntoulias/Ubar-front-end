@@ -28,4 +28,4 @@ local.properties
 ehthumbs.db
 Thumbs.db
 
-.app/src/main/java/gr/uoa/di/ecommerce/ubar/Def.java
+./app/src/main/java/gr/uoa/di/ecommerce/ubar/Def.java
