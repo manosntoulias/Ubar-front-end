@@ -14,18 +14,10 @@ local.properties
 .signing/
 
 # User-specific configurations
-.idea/libraries/
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/.name
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/scopes/scope_settings.xml
-.idea/vcs.xml
+.idea
+*.iws
 *.iml
+*.ipr
 
 # OS-specific files
 .DS_Store
@@ -35,3 +27,5 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+.app/src/main/java/gr/uoa/di/ecommerce/ubar/Def.java
