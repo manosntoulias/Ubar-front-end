@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String KEY_TYPE = "gr.uoa.di.ecommerce.ubar.TYPE";
 
     protected LoginActivity thisActivity;
+    protected GlobalState state;
     protected RequestQueue requestQueue;
 
     @Override
@@ -40,7 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         thisActivity = this;
-        requestQueue = Volley.newRequestQueue(this);
+        state = ((GlobalState) getApplicationContext());
+        requestQueue = state.getRequestQueue();
 
         Button Passengerbutton = (Button) findViewById(R.id.login);
         Button Driverbutton = (Button) findViewById(R.id.Dlogin);
@@ -128,38 +130,5 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-/*    private class LoginTask extends AsyncTask<String, Void, Void> {
-        @Override
-        protected Void doInBackground(String... data) {
-            // Create a new HttpClient and Post Header
-            HttpClient httpclient = HttpClientBuilder.create().build();
-            HttpPost httppost = new HttpPost(Def.SERVER_URL + Def.LOGIN_PATH);
 
-
-            try {
-                //add data
-                JSONObject jobj = new JSONObject();
-                jobj.put("username", data[0]);
-                jobj.put("password", data[1]);
-                jobj.put("type", data[2]);
-                StringEntity se = new StringEntity(jobj.toString());
-                se.setContentType("application/json");
-                httppost.setEntity(se);
-
-                //execute http post
-                HttpResponse response = httpclient.execute(httppost);
-
-            } catch (ClientProtocolException e) {
-
-            } catch (IOException e) {
-
-            }
-
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void result) {
-
-        }
-    }*/
 }
