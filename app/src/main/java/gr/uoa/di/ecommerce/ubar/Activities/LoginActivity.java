@@ -1,30 +1,25 @@
-package gr.uoa.di.ecommerce.ubar;
+package gr.uoa.di.ecommerce.ubar.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.AsyncTask;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONObject;
 import org.json.JSONException;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.HttpResponse;
-import java.io.IOException;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+
+import gr.uoa.di.ecommerce.ubar.Def;
+import gr.uoa.di.ecommerce.ubar.GlobalState;
+import gr.uoa.di.ecommerce.ubar.R;
 
 public class LoginActivity extends AppCompatActivity {
 

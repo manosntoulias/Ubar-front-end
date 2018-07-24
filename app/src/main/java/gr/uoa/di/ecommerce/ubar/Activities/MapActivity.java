@@ -1,9 +1,11 @@
-package gr.uoa.di.ecommerce.ubar;
+package gr.uoa.di.ecommerce.ubar.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.content.Intent;
+
+import gr.uoa.di.ecommerce.ubar.R;
 
 public class MapActivity extends AppCompatActivity {
 

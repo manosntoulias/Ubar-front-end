@@ -6,12 +6,15 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import gr.uoa.di.ecommerce.ubar.Def;
+
 public class RequestFactory {
+    //SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+    //    SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
 
-
-    public static Request createRequest(int method, String url, final EditText edText) {
-        if (method == Request.Method.POST) {
-            return new EmailCHRequest(method, url,
+    public static Request createRequest(String url, final EditText edText) {
+        if ((Def.SERVER_URL + Def.CHECK_MAIL_PATH).equals(url)) {
+            return new PostStringRequest(url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -22,11 +25,11 @@ public class RequestFactory {
                 public void onErrorResponse(VolleyError error) {
 
                 }
-            }, edText.getText().toString());
+            }, edText.getText().toString(), Def.TEXT_PLAIN);
         }
-        else if (method == Request.Method.GET)
+        else if ((Def.SERVER_URL + Def.CHECK_USR_PATH).equals(url))
         {
-            return new UserCHRequest(method, url,
+            return new UserCHRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
