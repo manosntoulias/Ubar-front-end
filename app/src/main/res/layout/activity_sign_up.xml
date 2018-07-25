@@ -22,15 +22,14 @@
         />
 
     <EditText
-        android:id = "@+id/edituser"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:inputType = "text"
+        android:id="@+id/edituser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/pass"
         app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-        app:layout_constraintTop_toBottomOf="@+id/user"
-        />
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
         <TextView
             android:id = "@+id/pass"
@@ -43,16 +42,15 @@
             app:layout_constraintTop_toBottomOf="@+id/edituser"
             />
 
-        <EditText
-            android:id = "@+id/editpass"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:inputType = "text"
-            app:layout_constraintBottom_toTopOf="@+id/con_pass"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/pass"
-            />
+    <EditText
+        android:id="@+id/editpass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/con_pass"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
        <TextView
             android:id = "@+id/con_pass"
@@ -65,15 +63,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editpass"
             />
 
-        <EditText
-            android:id="@+id/editcon_pass"
-            android:layout_width="17dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/con_pass" />
+    <EditText
+        android:id="@+id/editcon_pass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/con_pass" />
 
          <TextView
             android:id = "@+id/name"
@@ -86,16 +84,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editcon_pass"
             />
 
-        <EditText
-            android:id = "@+id/editname"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:inputType = "text"
-            app:layout_constraintBottom_toTopOf="@+id/surname"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            />
+    <EditText
+        android:id="@+id/editname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/surname"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id = "@+id/surname"
@@ -108,16 +105,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editname"
             />
 
-        <EditText
-            android:id = "@+id/editsurname"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:inputType = "text"
-            app:layout_constraintBottom_toTopOf="@+id/email"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/surname"
-            />
+    <EditText
+        android:id="@+id/editsurname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/surname" />
 
         <TextView
             android:id = "@+id/email"
@@ -130,16 +126,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editsurname"
             />
 
-        <EditText
-            android:id = "@+id/editemail"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:inputType = "text"
-            app:layout_constraintBottom_toTopOf="@+id/phone"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/email"
-            />
+    <EditText
+        android:id="@+id/editemail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/phone"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <TextView
             android:id = "@+id/phone"
@@ -152,16 +147,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editemail"
             />
 
-        <EditText
-            android:id = "@+id/editphone"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:inputType = "text"
-            app:layout_constraintBottom_toTopOf="@+id/address"
-            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-            app:layout_constraintTop_toBottomOf="@+id/phone"
-            />
+    <EditText
+        android:id="@+id/editphone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/address"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
         <TextView
             android:id = "@+id/address"
@@ -174,16 +168,15 @@
             app:layout_constraintTop_toBottomOf="@+id/editphone"
             />
 
-         <EditText
-              android:id = "@+id/editaddress"
-              android:layout_width = "wrap_content"
-              android:layout_height = "wrap_content"
-              android:inputType = "text"
-              app:layout_constraintBottom_toTopOf="@+id/driver_info"
-              app:layout_constraintLeft_toRightOf="@+id/left_guideline"
-
-              app:layout_constraintTop_toBottomOf="@+id/address"
-              />
+    <EditText
+        android:id="@+id/editaddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/driver_info"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+        app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
         <TextView
               android:id = "@+id/driver_info"
@@ -334,7 +327,7 @@
 
     <android.support.constraint.Guideline
         android:id="@+id/right_guideline"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8" />
