@@ -12,6 +12,10 @@ public class Def {
     // server returns -1 as id when something is not found
     public static final int not_found = -1;
 
+    public static final String KEY_USERNAME = "gr.uoa.di.ecommerce.ubar.USERNAME";
+    public static final String KEY_TYPE = "gr.uoa.di.ecommerce.ubar.TYPE";
+
+
     //better static checking
     public static final String id = "id";
     public static final String username = "username";

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".Activities.SignUp">
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
@@ -173,11 +174,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/driver_info"
+        app:layout_constraintBottom_toTopOf="@+id/signup"
         app:layout_constraintLeft_toRightOf="@+id/left_guideline"
         app:layout_constraintRight_toLeftOf="@+id/right_guideline"
         app:layout_constraintTop_toBottomOf="@+id/address" />
 
+    <!--
         <TextView
               android:id = "@+id/driver_info"
               android:layout_width = "wrap_content"
@@ -299,15 +301,15 @@
         app:layout_constraintTop_toBottomOf="@+id/editcolor"
         android:layout_marginRight="5dp"
         />
-
+-->
     <Button
-        android:id = "@+id/Dsignup"
-        android:layout_width = "0dp"
+        android:id = "@+id/signup"
+        android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "Driver\nSign Up"
-        app:layout_constraintLeft_toRightOf="@+id/Psignup"
+        android:text = "Sign Up"
+        app:layout_constraintLeft_toRightOf="@+id/left_guideline"
         app:layout_constraintRight_toLeftOf="@+id/right_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/editcolor"
+        app:layout_constraintTop_toBottomOf="@+id/editaddress"
         android:layout_marginLeft="5dp"
         />
 

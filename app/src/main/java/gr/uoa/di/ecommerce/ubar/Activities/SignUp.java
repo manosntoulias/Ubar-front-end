@@ -44,14 +44,14 @@ public class SignUp extends AppCompatActivity {
 
         EditText email = (EditText) findViewById(R.id.editemail);
         EditText usrname = (EditText) findViewById(R.id.edituser);
-        Button passenger_signup = (Button) findViewById(R.id.Psignup);
-        Button driver_signup = (Button) findViewById(R.id.Dsignup);
+        Button signup = (Button) findViewById(R.id.signup);
+        //Button driver_signup = (Button) findViewById(R.id.Dsignup);
 
         check_availability(email, Def.CHECK_MAIL_PATH);
         check_availability(usrname, Def.CHECK_USR_PATH);
 
-        register(passenger_signup, Def.passenger);
-        register(driver_signup, Def.driver);
+        register(signup, Def.passenger);
+       // register(driver_signup, Def.driver);
     }
 
 
