@@ -33,7 +33,7 @@ public class FirstLoginFragment extends Fragment {
     private TextView driverTxt;
     private ImageButton passengerImg;
     private ImageButton driverImg;
-    private Button SignUpbutton;
+
 
     // interfaces are used to decouple the fragment from activies that it is used
     // note that we dont import any acitivity in this file
@@ -61,7 +61,7 @@ public class FirstLoginFragment extends Fragment {
         driverTxt = (TextView) view.findViewById(R.id.driverTXT);
         passengerImg = (ImageButton) view.findViewById(R.id.passengerImg);
         driverImg = (ImageButton) view.findViewById(R.id.driverImg);
-        SignUpbutton = (Button) view.findViewById(R.id.signup);
+
 
         // passes the type (driver or passenger to the second fragment)
         // 2 images and 2 texts do this job once clicked
@@ -70,7 +70,7 @@ public class FirstLoginFragment extends Fragment {
         onClick_selectType(Def.passenger, passengerImg);
         onClick_selectType(Def.driver, driverImg);
 
-        onClickSignup(SignUpbutton);
+
 
         return view;
 
@@ -104,15 +104,7 @@ public class FirstLoginFragment extends Fragment {
 
 
 
-    private void onClickSignup(Button b) {
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SignUp.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     protected void onClick_selectType(final String type, View view) {
         view.setOnClickListener(new View.OnClickListener() {

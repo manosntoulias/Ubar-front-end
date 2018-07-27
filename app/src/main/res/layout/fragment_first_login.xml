@@ -57,26 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passengerImg"
         />
 
-    <TextView
-        android:id="@+id/newmember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="new member?"
-        app:layout_constraintBottom_toTopOf="@+id/signup"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/bot2_guide" />
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:text="SignUp"
-        app:layout_constraintBottom_toTopOf="@+id/bot_guide"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/newmember" />
 
 
     <android.support.constraint.Guideline
