@@ -119,7 +119,9 @@ public class SecondLoginFragment extends Fragment {
             public void onClick(View v) {
                 String username = UserTxt.getText().toString();
                 String password = PassTxt.getText().toString();
+
                 String typeStr = type.getText().toString();
+                typeStr = typeStr.substring(0,1).toLowerCase() + typeStr.substring(1,typeStr.length());
 
                 String url = Def.SERVER_URL + Def.LOGIN_PATH;
                 //String url = "http://httpbin.org/get?param1=hello";
@@ -132,7 +134,7 @@ public class SecondLoginFragment extends Fragment {
                     //TODO handle error
                 }
 
-
+                //error.setText(jobj.toString());
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                         (Request.Method.POST, url, jobj, new Response.Listener<JSONObject>() {
 
