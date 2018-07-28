@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Button;
 import android.view.View;
 
@@ -34,6 +35,27 @@ public class SignUp extends AppCompatActivity {
 
     protected User user;
 
+    //fields
+    EditText usrname;
+    EditText pass;
+    EditText con_pass;
+    EditText surname;
+    EditText name;
+    EditText email;
+    EditText address;
+    EditText phone;
+    Button signup;
+
+    //errors
+    TextView er_usrname;
+    TextView er_pass;
+    TextView er_con_pass;
+    TextView er_surname;
+    TextView er_name;
+    TextView er_email;
+    TextView er_address;
+    TextView er_phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,35 +64,49 @@ public class SignUp extends AppCompatActivity {
         state = ((GlobalState) getApplicationContext());
         requestQueue = state.getRequestQueue();
 
-        EditText email = (EditText) findViewById(R.id.editemail);
-        EditText usrname = (EditText) findViewById(R.id.edituser);
-        Button signup = (Button) findViewById(R.id.signup);
-        //Button driver_signup = (Button) findViewById(R.id.Dsignup);
+        get_fields();
 
-        check_availability(email, Def.CHECK_MAIL_PATH);
-        check_availability(usrname, Def.CHECK_USR_PATH);
+        check_availability(email, er_email, Def.CHECK_MAIL_PATH);
+        check_availability(usrname, er_usrname, Def.CHECK_USR_PATH);
+
+        onUnFocus_check_password(pass);
+        onUnFocus_check_password(con_pass);
 
         register(signup, Def.passenger);
        // register(driver_signup, Def.driver);
     }
 
 
-    protected void check_availability(final EditText edText, final String path) {
+    protected void check_availability(final EditText edText, final TextView error, final String path) {
             edText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus)  {
                 final String check_text = edText.getText().toString();
+
+
                 if (!hasFocus && !"".equals(check_text))
                 {
+                    //username exclusive
+                    if (edText == usrname)
+                    {
+                        if (check_text.length() < 5) {
+                            error.setText("Must be at least 5 characters");
+                            return;
+                        }
+                        else
+                            error.setText("");
+                    }
 
                     String url = Def.SERVER_URL + path;
 
                     // Request a string response from the provided URL.
-                    Request stringRequest =  RequestFactory.createRequest(url, edText);
+                    Request stringRequest =  RequestFactory.createRequest(url, edText, error);
 
                     //edText.setText("SUCCESS");
                     requestQueue.add((StringRequest)stringRequest);
                 }
+                else
+                    error.setText("");
             }
         });
     }
@@ -127,6 +163,55 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    protected void onUnFocus_check_password(EditText a_password) {
 
+        a_password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)  {
+                String check_pass = pass.getText().toString();
+                String check_confirm  = con_pass.getText().toString();
+                if (!hasFocus && !"".equals(check_pass) && !"".equals(check_confirm) && !check_confirm.equals(check_pass))
+                {
+                    er_con_pass.setText("Passwords don't match");
+                }
+                else
+                    er_con_pass.setText("");
+
+                if (check_pass.length() < 5 && check_pass.length() > 0)
+                    er_pass.setText("Must be at least 5 characters");
+                else
+                    er_pass.setText("");
+            }
+        });
+
+    }
+
+
+
+
+
+    protected void get_fields() {
+
+        usrname = (EditText) findViewById(R.id.edituser);
+        pass = (EditText) findViewById(R.id.editpass);
+        con_pass = (EditText) findViewById(R.id.editcon_pass);
+        surname = (EditText) findViewById(R.id.editsurname);
+        name = (EditText) findViewById(R.id.editname);
+        email = (EditText) findViewById(R.id.editemail);
+        address= (EditText) findViewById(R.id.editaddress);
+        phone = (EditText) findViewById(R.id.editphone);
+        signup = (Button) findViewById(R.id.signup);
+
+        //errors
+        er_usrname = (TextView) findViewById(R.id.erroruser);
+        er_pass = (TextView) findViewById(R.id.errorpass);
+        er_con_pass = (TextView) findViewById(R.id.errorcon_pass);
+        er_surname = (TextView) findViewById(R.id.errorsurname);
+        er_name = (TextView) findViewById(R.id.errorname);
+        er_email = (TextView) findViewById(R.id.erroremail);
+        er_address= (TextView) findViewById(R.id.erroraddress);
+        er_phone = (TextView) findViewById(R.id.errorphone);
+
+    }
 
 }
