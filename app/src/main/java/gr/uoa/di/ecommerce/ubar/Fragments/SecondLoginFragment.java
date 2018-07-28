@@ -22,8 +22,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import gr.uoa.di.ecommerce.ubar.Activities.MainActivity;
-import gr.uoa.di.ecommerce.ubar.Activities.MapActivity;
+
+import gr.uoa.di.ecommerce.ubar.Activities.HomeActivity;
 import gr.uoa.di.ecommerce.ubar.GlobalState;
 import gr.uoa.di.ecommerce.ubar.R;
 import gr.uoa.di.ecommerce.ubar.Def;
@@ -141,7 +141,7 @@ public class SecondLoginFragment extends Fragment {
                             @Override
                             public void onResponse(JSONObject response) {
                                 boolean success = false;
-                                Intent intent = new Intent(getActivity(), MapActivity.class);
+                                Intent intent = new Intent(getActivity(), HomeActivity.class);
                                 try {
                                     if ((Integer) response.get(Def.id) != Def.not_found) {
                                         error.setText("SUCCESS");
