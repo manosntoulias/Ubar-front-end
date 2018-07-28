@@ -1,4 +1,4 @@
-package gr.uoa.di.ecommerce.ubar.Activities;
+package gr.uoa.di.ecommerce.ubar.Fragments;
 
 
 //import android.app.Activity;

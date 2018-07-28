@@ -5,20 +5,16 @@ import android.app.Activity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
+import gr.uoa.di.ecommerce.ubar.Fragments.NavigationDrawerFragment;
+import gr.uoa.di.ecommerce.ubar.Fragments.TripsFragment;
+import gr.uoa.di.ecommerce.ubar.Fragments.ProfileFragment;
 import gr.uoa.di.ecommerce.ubar.R;
 
 public class HomeActivity extends AppCompatActivity
@@ -52,9 +48,22 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+        Fragment fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
+        switch(position) {
+            default:
+            case 0:
+                fragment = new TripsFragment();
+                break;
+            case 1:
+                fragment = new ProfileFragment();
+                break;
+            case 2:
+                fragment = PlaceholderFragment.newInstance(position);
+                break;
+        }
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, fragment)
                 .commit();
     }
 
