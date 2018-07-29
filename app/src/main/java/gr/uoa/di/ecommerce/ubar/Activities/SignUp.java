@@ -117,46 +117,57 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                user = new User(((EditText) findViewById(R.id.edituser)).getText().toString(),
-                        ((EditText) findViewById(R.id.editpass)).getText().toString(),
-                        ((EditText) findViewById(R.id.editsurname)).getText().toString(),
-                        ((EditText) findViewById(R.id.editname)).getText().toString(),
-                        ((EditText) findViewById(R.id.editemail)).getText().toString(),
-                        ((EditText) findViewById(R.id.editaddress)).getText().toString(),
-                        ((EditText) findViewById(R.id.editphone)).getText().toString());
+                user = new User(usrname.getText().toString(),
+                        pass.getText().toString(),
+                        surname.getText().toString(),
+                        name.getText().toString(),
+                        email.getText().toString(),
+                        address.getText().toString(),
+                        phone.getText().toString());
 
 
                 String url = Def.SERVER_URL + Def.REGISTER_PATH + "/" + type;
                 JSONObject jobj = new JSONObject();
-                try {
-
-                final String mRequestBody = user.mapJSON(jobj);
-
-                StringRequest stringRequest = new PostStringRequest
-                        (url, new Response.Listener<String>() {
-
-                            @Override
-                            public void onResponse(String response) {
-                                boolean success = Boolean.parseBoolean(response);
-                                if (success)
-                                    finish();
-
-                            }
-                        }, new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError voLerror) {
-                                //error.setText("Error: " + voLerror.toString());
-                                //TODO write to log instead
-                            }
-                        }, mRequestBody, Def.APP_JSON);
-
-                requestQueue.add(stringRequest);
-
-                } catch (JSONException e) {
-                    //TODO handle error
+                if (user.empty())
+                {
+                    er_address.setText("Please fill all empty fields to continue");
+                    return;
                 }
+                else if (errors()) {
+                    er_address.setText("Please resolve all errors to continue");
+                    return;
+                }
+                else {
+                    er_address.setText("");
+                    try {
 
+                        final String mRequestBody = user.mapJSON(jobj);
+
+                        StringRequest stringRequest = new PostStringRequest
+                                (url, new Response.Listener<String>() {
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        boolean success = Boolean.parseBoolean(response);
+                                        if (success)
+                                            finish();
+
+                                    }
+                                }, new Response.ErrorListener() {
+
+                                    @Override
+                                    public void onErrorResponse(VolleyError voLerror) {
+                                        //error.setText("Error: " + voLerror.toString());
+                                        //TODO write to log instead
+                                    }
+                                }, mRequestBody, Def.APP_JSON);
+
+                        requestQueue.add(stringRequest);
+
+                    } catch (JSONException e) {
+                        //TODO handle error
+                    }
+                }
 
 
             }
@@ -186,7 +197,15 @@ public class SignUp extends AppCompatActivity {
 
     }
 
-
+    protected boolean errors()
+    {
+        if ("".equals(er_usrname.getText().toString()) &&
+        "".equals(er_pass.getText().toString()) &&
+        "".equals(er_con_pass.getText().toString()) &&
+        "".equals(er_email.getText().toString()))
+            return false;
+        return true;
+    }
 
 
 

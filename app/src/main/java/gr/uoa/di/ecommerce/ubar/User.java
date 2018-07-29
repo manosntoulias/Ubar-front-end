@@ -36,6 +36,18 @@ public class User {
             return jobj.toString();
     }
 
+    public boolean empty() {
+        if ("".equals(username) ||
+            "".equals(password) ||
+            "".equals(surname) ||
+            "".equals(name) ||
+            "".equals(email) ||
+            "".equals(address) ||
+            "".equals(phone))
+                return true;
+        return false;
+    }
+
     public void setUsername(String usrname) {
         this.username = usrname;
     }
