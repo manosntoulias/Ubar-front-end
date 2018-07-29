@@ -27,6 +27,7 @@ import gr.uoa.di.ecommerce.ubar.Activities.HomeActivity;
 import gr.uoa.di.ecommerce.ubar.GlobalState;
 import gr.uoa.di.ecommerce.ubar.R;
 import gr.uoa.di.ecommerce.ubar.Def;
+import gr.uoa.di.ecommerce.ubar.Utilities.Hash;
 
 
 public class SecondLoginFragment extends Fragment {
@@ -128,7 +129,7 @@ public class SecondLoginFragment extends Fragment {
                 JSONObject jobj = new JSONObject();
                 try {
                     jobj.put("username", username);
-                    jobj.put("password", password);
+                    jobj.put("password", Hash.getSHA512(password));
                     jobj.put("type", typeStr);
                 } catch (JSONException e) {
                     //TODO handle error

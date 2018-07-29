@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/secondary"
     tools:context=".Activities.SignUp">
 
     <android.support.constraint.ConstraintLayout
@@ -248,6 +248,41 @@
             app:layout_constraintRight_toLeftOf="@+id/right_guideline"
             app:layout_constraintTop_toBottomOf="@+id/address" />
 
+        <RadioGroup
+            android:id="@+id/typeRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+            app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/editaddress"
+            >
+
+        <RadioButton
+            android:id="@+id/radioPassenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passenger"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+            app:layout_constraintRight_toLeftOf="@+id/radioDriver" />
+
+        <RadioButton
+            android:id="@+id/radioDriver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            app:layout_constraintLeft_toRightOf="@+id/radioPassenger"
+            app:layout_constraintRight_toLeftOf="@+id/right_guideline" />
+        </RadioGroup>
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/left_guideline"
+            app:layout_constraintRight_toLeftOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/typeRadio" />
+
         <TextView
             android:id="@+id/erroraddress"
             android:layout_width="0dp"
@@ -256,7 +291,9 @@
             android:textColor="@color/red"
             app:layout_constraintLeft_toRightOf="@+id/left_guideline"
             app:layout_constraintRight_toLeftOf="@+id/right_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/editaddress" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_container" />
+
+
 
         <!--
         <TextView
@@ -414,6 +451,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.8" />
+
+
+
 
         <!--  <android.support.constraint.Guideline
         android:id="@+id/mid_guideline"

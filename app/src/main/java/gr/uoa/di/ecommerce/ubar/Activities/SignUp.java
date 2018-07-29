@@ -24,6 +24,7 @@ import gr.uoa.di.ecommerce.ubar.R;
 import gr.uoa.di.ecommerce.ubar.Requests.RequestFactory;
 import gr.uoa.di.ecommerce.ubar.Requests.PostStringRequest;
 import gr.uoa.di.ecommerce.ubar.User;
+import gr.uoa.di.ecommerce.ubar.Utilities.Hash;
 
 
 import java.lang.Boolean;
@@ -127,8 +128,8 @@ public class SignUp extends AppCompatActivity {
 
 
                 String url = Def.SERVER_URL + Def.REGISTER_PATH + "/" + type;
-                JSONObject jobj = new JSONObject();
-                if (user.empty())
+                JSONObject jobj = new JSONObject();;
+                if (user.empty() || "".equals(con_pass.getText().toString()))
                 {
                     er_address.setText("Please fill all empty fields to continue");
                     return;
@@ -138,6 +139,8 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
                 else {
+                    user.setPassword(Hash.getSHA512(user.getPassword()));
+                    jobj = new JSONObject();
                     er_address.setText("");
                     try {
 
