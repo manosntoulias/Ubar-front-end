@@ -23,6 +23,19 @@ public class User {
         phone = ph;
     }
 
+    public User() {}
+
+    public void set(String usr, String pass, String surn, String name, String mail, String addr, String ph)
+    {
+        username = usr;
+        password = pass;
+        surname = surn;
+        name = name;
+        email = mail;
+        address = addr;
+        phone = ph;
+    }
+
     public String mapJSON(JSONObject jobj) throws JSONException {
 
             jobj.put(Def.username, username);

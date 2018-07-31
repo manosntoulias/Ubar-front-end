@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.view.View;
+import android.support.constraint.ConstraintLayout;
 
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -24,6 +29,7 @@ import gr.uoa.di.ecommerce.ubar.R;
 import gr.uoa.di.ecommerce.ubar.Requests.RequestFactory;
 import gr.uoa.di.ecommerce.ubar.Requests.PostStringRequest;
 import gr.uoa.di.ecommerce.ubar.User;
+import gr.uoa.di.ecommerce.ubar.Utilities.Vehicle;
 import gr.uoa.di.ecommerce.ubar.Utilities.Hash;
 
 
@@ -35,35 +41,31 @@ public class SignUp extends AppCompatActivity {
     protected RequestQueue requestQueue;
 
     protected User user;
+    protected Vehicle vehicle;
 
-    //fields
-    EditText usrname;
-    EditText pass;
-    EditText con_pass;
-    EditText surname;
-    EditText name;
-    EditText email;
-    EditText address;
-    EditText phone;
+    boolean isDriver;
+    ConstraintLayout DriverView;
+    String type;
+    String vehicle_type;
+
+    //buttons
+    Spinner type_spinner;
     Button signup;
+    RadioGroup usergroup;
+
+    //user fields
+    EditText usrname, pass, con_pass, surname, name, email, address, phone;
+
+    //vehicle fields
+    EditText model, manufacturer, year, plate, color;
 
     //errors
-    TextView er_usrname;
-    TextView er_pass;
-    TextView er_con_pass;
-    TextView er_surname;
-    TextView er_name;
-    TextView er_email;
-    TextView er_address;
-    TextView er_phone;
+    TextView er_usrname, er_pass, er_con_pass, er_surname, er_name, er_email, er_address, er_phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
-        state = ((GlobalState) getApplicationContext());
-        requestQueue = state.getRequestQueue();
 
         get_fields();
 
@@ -73,7 +75,8 @@ public class SignUp extends AppCompatActivity {
         onUnFocus_check_password(pass);
         onUnFocus_check_password(con_pass);
 
-        register(signup, Def.passenger);
+        onUserTypeSelected();
+        register(signup);
        // register(driver_signup, Def.driver);
     }
 
@@ -112,13 +115,13 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    protected void register(Button RegButtion, final String type) {
+    protected void register(Button RegButtion) {
 
         RegButtion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                user = new User(usrname.getText().toString(),
+                user.set(usrname.getText().toString(),
                         pass.getText().toString(),
                         surname.getText().toString(),
                         name.getText().toString(),
@@ -126,10 +129,19 @@ public class SignUp extends AppCompatActivity {
                         address.getText().toString(),
                         phone.getText().toString());
 
+                if (isDriver)
+                    vehicle.set(model.getText().toString(),
+                            manufacturer.getText().toString(),
+                            year.getText().toString(),
+                            plate.getText().toString(),
+                            color.getText().toString(),
+                            vehicle_type);
+
 
                 String url = Def.SERVER_URL + Def.REGISTER_PATH + "/" + type;
-                JSONObject jobj = new JSONObject();;
-                if (user.empty() || "".equals(con_pass.getText().toString()))
+                JSONObject jobj;
+                if (user.empty() || "".equals(con_pass.getText().toString())
+                        || (isDriver && vehicle.empty()) )
                 {
                     er_address.setText("Please fill all empty fields to continue");
                     return;
@@ -200,6 +212,47 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    protected void onUserTypeSelected() {
+        usergroup.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                isDriver = !isDriver;
+                if (isDriver) {
+                    DriverView.setVisibility(View.VISIBLE);
+                    type = Def.driver;
+                } else {
+                    DriverView.setVisibility(View.GONE);
+                    type = Def.passenger;
+                }
+            }
+
+        });
+    }
+
+    protected void VehicleTypeSelected() {
+
+        type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
+                if (pos == 1)
+                    vehicle_type = "car";
+                else
+                    vehicle_type = "motorcycle";
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+
+
+
+        });
+
+    }
+
     protected boolean errors()
     {
         if ("".equals(er_usrname.getText().toString()) &&
@@ -214,6 +267,21 @@ public class SignUp extends AppCompatActivity {
 
     protected void get_fields() {
 
+        state = ((GlobalState) getApplicationContext());
+        requestQueue = state.getRequestQueue();
+        isDriver = false;
+        type = Def.passenger;
+        vehicle_type = "car";
+
+        //set up dropdown menu for vehicle type
+        type_spinner = (Spinner) findViewById(R.id.type_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type_spinner.setAdapter(adapter);
+
+        user = new User();
+        vehicle = new Vehicle();
+
         usrname = (EditText) findViewById(R.id.edituser);
         pass = (EditText) findViewById(R.id.editpass);
         con_pass = (EditText) findViewById(R.id.editcon_pass);
@@ -223,6 +291,17 @@ public class SignUp extends AppCompatActivity {
         address= (EditText) findViewById(R.id.editaddress);
         phone = (EditText) findViewById(R.id.editphone);
         signup = (Button) findViewById(R.id.signup);
+
+        //vehicle
+        model = (EditText) findViewById(R.id.editmodel);
+        manufacturer = (EditText) findViewById(R.id.editmanufacturer);
+        year = (EditText) findViewById(R.id.edityear);
+        plate = (EditText) findViewById(R.id.editplate);
+        color = (EditText) findViewById(R.id.editcolor);
+
+        usergroup = (RadioGroup) findViewById(R.id.typeRadio);
+        DriverView = (ConstraintLayout) findViewById(R.id.vehicle);
+        DriverView.setVisibility(View.GONE);
 
         //errors
         er_usrname = (TextView) findViewById(R.id.erroruser);

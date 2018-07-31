@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Spinner
+        android:id="@+id/type_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingTop="20dp" />
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/type_spinner"
+        android:text="Model:" />
+
+    <EditText
+        android:id = "@+id/editmodel"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:inputType = "text"
+        app:layout_constraintTop_toBottomOf="@+id/model"
+        />
+
+    <TextView
+        android:id="@+id/manufacturer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Manufacturer:"
+        app:layout_constraintTop_toBottomOf="@+id/editmodel" />
+
+    <EditText
+        android:id="@+id/editmanufacturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/manufacturer" />
+
+    <TextView
+        android:id="@+id/manufacture_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Manufacture year:"
+        app:layout_constraintTop_toBottomOf="@+id/editmanufacturer" />
+
+    <EditText
+        android:id="@+id/edityear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/manufacture_year"
+
+        />
+
+    <TextView
+        android:id="@+id/plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Registration Plate:"
+        app:layout_constraintTop_toBottomOf="@+id/edityear" />
+
+    <EditText
+        android:id="@+id/editplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/plate"
+        />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Color:"
+        app:layout_constraintTop_toBottomOf="@+id/editplate" />
+
+    <EditText
+        android:id="@+id/editcolor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/color"
+
+        />
+
+</android.support.constraint.ConstraintLayout>

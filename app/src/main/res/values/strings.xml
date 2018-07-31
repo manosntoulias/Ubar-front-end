@@ -14,4 +14,10 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="type_array">
+        <item>Car</item>
+        <item>Motorcycle</item>
+    </string-array>
+
 </resources>

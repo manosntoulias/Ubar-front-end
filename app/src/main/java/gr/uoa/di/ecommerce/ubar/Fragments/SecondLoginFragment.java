@@ -147,6 +147,9 @@ public class SecondLoginFragment extends Fragment {
                                     if ((Integer) response.get(Def.id) != Def.not_found) {
                                         error.setText("SUCCESS");
                                         success = true;
+                                        state.setMyUsername((String) response.get(Def.username));
+                                        state.setMyType((String) response.get(Def.type));
+                                        state.setMyID(Integer.parseInt((String) response.get(Def.id)));
                                         intent.putExtra(Def.KEY_USERNAME, (String) response.get(Def.username));
                                         intent.putExtra(Def.KEY_TYPE, (String) response.get(Def.type));
 
