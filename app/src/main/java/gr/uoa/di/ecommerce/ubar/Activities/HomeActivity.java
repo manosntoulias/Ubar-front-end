@@ -2,6 +2,7 @@ package gr.uoa.di.ecommerce.ubar.Activities;
 
 import android.app.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,13 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import gr.uoa.di.ecommerce.ubar.Fragments.NavigationDrawerFragment;
 import gr.uoa.di.ecommerce.ubar.Fragments.TripsFragment;
 import gr.uoa.di.ecommerce.ubar.Fragments.ProfileFragment;
 import gr.uoa.di.ecommerce.ubar.R;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, OnMapReadyCallback {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -30,10 +38,19 @@ public class HomeActivity extends AppCompatActivity
      */
     private CharSequence mTitle;
 
+    // Defined
+    private GoogleMap mMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        SupportMapFragment fragment;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragment = new SupportMapFragment();
+        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+        fragment.getMapAsync(this);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -48,23 +65,28 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        Fragment fragment;
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        //Fragment fragment = null;
+        //FragmentManager fragmentManager = getSupportFragmentManager();
+        Intent intent;
         switch(position) {
-            default:
             case 0:
-                fragment = new TripsFragment();
+                //fragment = new TripsFragment();
+                intent = new Intent(this, TripsActivity.class);
+                this.startActivity(intent);
                 break;
             case 1:
-                fragment = new ProfileFragment();
+                //fragment = new ProfileFragment();
+                intent = new Intent(this, ProfileActivity.class);
+                this.startActivity(intent);
                 break;
             case 2:
-                fragment = PlaceholderFragment.newInstance(position);
+                //fragment = new ProfileFragment();
                 break;
+
         }
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        //fragmentManager.beginTransaction()
+        //        .replace(R.id.container, fragment)
+        //        .commit();
     }
 
     public void onSectionAttached(int number) {
@@ -126,6 +148,25 @@ public class HomeActivity extends AppCompatActivity
             ((HomeActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
 }

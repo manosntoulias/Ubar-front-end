@@ -6,7 +6,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_section1">My Trips</string>
     <string name="title_section2">Profile</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section3">Dummy</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,5 +19,7 @@
         <item>Car</item>
         <item>Motorcycle</item>
     </string-array>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBABTkLIqV_sY5v4z0py1wDFlCZ3sAwoD8</string>
 
 </resources>

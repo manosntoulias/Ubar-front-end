@@ -149,7 +149,7 @@ public class SecondLoginFragment extends Fragment {
                                         success = true;
                                         state.setMyUsername((String) response.get(Def.username));
                                         state.setMyType((String) response.get(Def.type));
-                                        state.setMyID(Integer.parseInt((String) response.get(Def.id)));
+                                        state.setMyID((Integer) response.get(Def.id));
                                         intent.putExtra(Def.KEY_USERNAME, (String) response.get(Def.username));
                                         intent.putExtra(Def.KEY_TYPE, (String) response.get(Def.type));
 
