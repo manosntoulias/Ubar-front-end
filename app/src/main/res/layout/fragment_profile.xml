@@ -7,8 +7,6 @@
     android:background="@color/secondary"
     tools:context=".Activities.ProfileActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -38,7 +36,7 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dimitris Anastasopoulos"
+            android:text="username"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -47,29 +45,76 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <TextView
-            android:id="@+id/address"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="mail@domain.com"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
+
+        <TextView
+            android:id="@+id/_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
             android:textColor="@color/black"
             app:layout_constraintLeft_toRightOf="@id/guideline"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="e-mail"
             android:textColor="@color/black"
-            app:layout_constraintLeft_toRightOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/address" />
+            app:layout_constraintLeft_toRightOf="@id/_name"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"/>
 
         <TextView
+            android:id="@+id/_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Surname: "
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/_name" />
+
+        <TextView
+            android:id="@+id/surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/_surname"
+            app:layout_constraintTop_toBottomOf="@id/_name"/>
+
+        <TextView
+            android:id="@+id/_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Address: "
+            app:layout_constraintTop_toBottomOf="@id/_surname"
+            app:layout_constraintLeft_toRightOf="@id/guideline" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/_surname"
+            app:layout_constraintLeft_toRightOf="@id/_address"/>
+
+        <Button
+            android:id="@+id/avatarBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Upload avatar"
             android:textColor="@color/primary"
             android:textStyle="bold"
+            android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -111,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.42" />
+            app:layout_constraintGuide_percent="0.46" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline5"

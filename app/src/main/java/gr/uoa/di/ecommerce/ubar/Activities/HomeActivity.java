@@ -49,7 +49,6 @@ import com.google.android.gms.common.api.ResolvableApiException;
 
 import gr.uoa.di.ecommerce.ubar.Fragments.NavigationDrawerFragment;
 import gr.uoa.di.ecommerce.ubar.Fragments.TripsFragment;
-import gr.uoa.di.ecommerce.ubar.Fragments.ProfileFragment;
 import gr.uoa.di.ecommerce.ubar.R;
 
 public class HomeActivity extends AppCompatActivity
