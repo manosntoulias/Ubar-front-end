@@ -29,6 +29,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
@@ -63,6 +65,9 @@ public class HomeActivity extends AppCompatActivity
     // The geographical location where the device is currently located. That is, the last-known
     // location retrieved by the Fused Location Provider.
     private Location mLastKnownLocation;
+    private LocationCallback mLocationCallback;
+    private LocationRequest mLocationRequest;
+
 
     private static final int DEFAULT_ZOOM = 15;
 
@@ -267,6 +272,13 @@ public class HomeActivity extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         //getDeviceLocation();
+
+        updateLocation();
+
+        mFusedLocationProviderClient.requestLocationUpdates(mLocationRequest,
+                mLocationCallback,
+                null /* Looper */);
+
     }
 
     /**
@@ -274,7 +286,7 @@ public class HomeActivity extends AppCompatActivity
      */
     private void enableLocation() {
 
-        LocationRequest mLocationRequest = LocationRequest.create()
+        mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(5)
                 .setFastestInterval(1 * 1000);
@@ -406,6 +418,34 @@ public class HomeActivity extends AppCompatActivity
         } catch (SecurityException e)  {
             //Log.e("Exception: %s", e.getMessage());
         }
+    }
+
+    private void updateLocation() {
+
+        if (mLocationPermissionGranted) {
+            mLocationCallback = new LocationCallback() {
+                @Override
+                public void onLocationResult(LocationResult locationResult) {
+                    if (locationResult == null) {
+                        return;
+                    }
+                    mLastKnownLocation = locationResult.getLastLocation();
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                            new LatLng(mLastKnownLocation.getLatitude(),
+                                    mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+
+
+
+                /*for (Location location : locationResult.getLocations()) {
+                        // Update UI with location data
+                        // ...
+                }*/
+                }
+
+                ;
+            };
+        }
+
     }
 
 }

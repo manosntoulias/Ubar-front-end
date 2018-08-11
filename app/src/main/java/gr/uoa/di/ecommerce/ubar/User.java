@@ -17,7 +17,7 @@ public class User {
         username = usr;
         password = pass;
         surname = surn;
-        name = name;
+        this.name = name;
         email = mail;
         address = addr;
         phone = ph;
@@ -30,7 +30,7 @@ public class User {
         username = usr;
         password = pass;
         surname = surn;
-        name = name;
+        this.name = name;
         email = mail;
         address = addr;
         phone = ph;
