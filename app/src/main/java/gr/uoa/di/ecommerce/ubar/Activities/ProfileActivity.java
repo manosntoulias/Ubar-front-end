@@ -11,9 +11,13 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.io.ByteArrayOutputStream;
 
 import com.android.volley.Request;
@@ -46,6 +50,15 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            Picasso.get().load(R.drawable.progress_image).into(avatar);
+
+            RotateAnimation anim = new RotateAnimation(0.0f, 359.9f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            anim.setInterpolator(new LinearInterpolator());
+            anim.setRepeatCount(Animation.INFINITE);
+            anim.setDuration(4000);
+            // Start animating the image
+            avatar.startAnimation(anim);
+
             final Uri selectedImage = data.getData();
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             try {
@@ -71,6 +84,8 @@ public class ProfileActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 boolean status = Boolean.parseBoolean(response);
                                 if (status) {
+                                    // Stop animation
+                                    avatar.setAnimation(null);
                                     Picasso.get().load(selectedImage).into(avatar);
                                 } else {
 //                                    TODO - show error message
