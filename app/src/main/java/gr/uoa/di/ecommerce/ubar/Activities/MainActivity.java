@@ -13,6 +13,7 @@ import gr.uoa.di.ecommerce.ubar.Def;
 import gr.uoa.di.ecommerce.ubar.R;
 import gr.uoa.di.ecommerce.ubar.Fragments.FirstLoginFragment;
 import gr.uoa.di.ecommerce.ubar.Fragments.SecondLoginFragment;
+import gr.uoa.di.ecommerce.ubar.Utilities.PrefSingleton;
 
 public class MainActivity extends AppCompatActivity implements FirstLoginFragment.OnFragmentInteractionListener, SecondLoginFragment.OnFragmentInteractionListener {
 
@@ -22,6 +23,16 @@ public class MainActivity extends AppCompatActivity implements FirstLoginFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //test
+        if (PrefSingleton.getInstance().getSharedPref().contains("username")) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        //end test
+
         setContentView(R.layout.activity_main);
 
         // if we're being restored from a previous state,

@@ -48,9 +48,15 @@ public class PrefSingleton {
 
 
     // use: PrefSingleton.getInstance().getSharedPref().getInt(String, defaultValue) to get the values
-    //                              or .getString(String, defaultvalue)
+    //                                              or .getString(String, defaultvalue)
 
     public SharedPreferences getSharedPref() {
         return sharedPref;
+    }
+
+    public void clear() {
+        SharedPreferences.Editor e = sharedPref.edit();
+        e.clear();
+        e.commit();
     }
 }

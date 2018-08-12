@@ -52,6 +52,8 @@ import com.google.android.gms.common.api.ResolvableApiException;
 import gr.uoa.di.ecommerce.ubar.Fragments.NavigationDrawerFragment;
 import gr.uoa.di.ecommerce.ubar.Fragments.TripsFragment;
 import gr.uoa.di.ecommerce.ubar.R;
+import gr.uoa.di.ecommerce.ubar.Utilities.PrefSingleton;
+
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks, OnMapReadyCallback {
@@ -210,13 +212,14 @@ public class HomeActivity extends AppCompatActivity
                 this.startActivity(intent);
                 break;
             case 2:
-                //fragment = new ProfileFragment();
+                PrefSingleton.getInstance().clear();
+                intent = new Intent(this, MainActivity.class);
+                this.startActivity(intent);
+                finish();
                 break;
 
         }
-        //fragmentManager.beginTransaction()
-        //        .replace(R.id.container, fragment)
-        //        .commit();
+
     }
 
     public void onSectionAttached(int number) {
