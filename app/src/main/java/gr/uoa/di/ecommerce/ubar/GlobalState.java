@@ -3,6 +3,7 @@ package gr.uoa.di.ecommerce.ubar;
 import com.android.volley.toolbox.Volley;
 import com.android.volley.RequestQueue;
 import android.app.Application;
+import gr.uoa.di.ecommerce.ubar.Utilities.PrefSingleton;
 
 public class GlobalState extends Application {
 
@@ -18,6 +19,7 @@ public class GlobalState extends Application {
     public void onCreate() {
         super.onCreate();
         requestQueue = Volley.newRequestQueue(this);
+        PrefSingleton.getInstance().Initialize(this);
 
     }
 
