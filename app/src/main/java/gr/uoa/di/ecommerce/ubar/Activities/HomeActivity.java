@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -121,6 +122,11 @@ public class HomeActivity extends AppCompatActivity
         fragment = new SupportMapFragment();
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
         fragment.getMapAsync(this);
+
+        // Set map overlay
+        FrameLayout item = (FrameLayout)findViewById(R.id.container2);
+        View child = getLayoutInflater().inflate(R.layout.map_overlay, null);
+        item.addView(child);
 
         //classes for location
         //mGeoDataClient = Places.getGeoDataClient(this, null);
