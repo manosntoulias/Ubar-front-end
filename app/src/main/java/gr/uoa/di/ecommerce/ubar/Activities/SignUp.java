@@ -156,6 +156,8 @@ public class SignUp extends AppCompatActivity {
                     er_address.setText("");
                     try {
 
+                        if (isDriver)
+                            vehicle.mapJSON(jobj);
                         final String mRequestBody = user.mapJSON(jobj);
 
                         StringRequest stringRequest = new PostStringRequest

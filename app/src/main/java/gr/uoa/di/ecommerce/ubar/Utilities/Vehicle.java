@@ -30,10 +30,10 @@ public class Vehicle {
 
     public String mapJSON(JSONObject jobj) throws JSONException {
 
-        jobj.put("id", 1); //TODO
+        //jobj.put("id", 1); //TODO
         jobj.put("licensePlate", plate);
         jobj.put("manufacturer", manufacturer);
-        jobj.put("year", year);
+        jobj.put("year", Integer.parseInt(year));
         jobj.put("color", color);
         jobj.put("model", model);
         jobj.put("type", type);
